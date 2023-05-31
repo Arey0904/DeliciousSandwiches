@@ -13,7 +13,7 @@ class Chip {
         return type;
     }
 
-    public double getChipPrice() {
+    public double getPrice() {
         return price;
     }
 

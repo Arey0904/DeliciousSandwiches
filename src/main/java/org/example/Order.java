@@ -1,17 +1,18 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private List<Sandwich> sandwiches = new List<Sandwich>();
-    private List<Drink> drinks = new List<Drink>();
-    private List<Chip> chips = new List<Chip>();
+    private List<Sandwich> sandwiches = new ArrayList<>();
+    private List<Beverage> drinks = new ArrayList<>();
+    private List<Chip> chips = new ArrayList<>();
 
     public List<Sandwich> getSandwiches() {
         return sandwiches;
     }
 
-    public List<Drink> getDrinks() {
+    public List<Beverage> getDrinks() {
         return drinks;
     }
 
@@ -23,7 +24,7 @@ public class Order {
         this.sandwiches.add(sandwich);
     }
 
-    public void addDrink(Drink drink){
+    public void addDrink(Beverage drink){
         this.drinks.add(drink);
     }
 
@@ -39,7 +40,7 @@ public class Order {
         for (Sandwich s : sandwiches){
             sandwichesTotal += s.getPrice();
         }
-        for (Drink d : drinks){
+        for (Beverage d : drinks){
             drinksTotal += d.getPrice();
         }
         for (Chip c : chips){
