@@ -7,21 +7,21 @@ public class Sandwich {
     private double basePrice;
     private Bread bread;
     private List<Topping> toppings;
-    private Size size;
+    private SandwichSize sandwichSize;
     private boolean isToasted;
     private double totalToppingPrice;
 
 
-    public Sandwich(double basePrice, Bread bread, List<Topping> toppings, Size size, boolean isToasted) {
+    public Sandwich(double basePrice, Bread bread, List<Topping> toppings, SandwichSize sandwichSize, boolean isToasted) {
         this.basePrice = basePrice;
         this.bread = bread;
         this.toppings = toppings;
-        this.size = size;
+        this.sandwichSize = sandwichSize;
         this.isToasted = false; //default option is not toasted
     }
 
     public double getBasePrice() {
-        switch (size){
+        switch (sandwichSize){
             case FOUR_IN -> basePrice = 5.50;
             case EIGHT_IN -> basePrice = 7.00;
             case TWELVE_IN ->  basePrice = 8.50;
@@ -50,12 +50,12 @@ public class Sandwich {
         return toppings;
     }
 
-    public Size getSize() {
-        return size;
+    public SandwichSize getSandwichSize() {
+        return sandwichSize;
     }
 
-    public void setSize(Size size) {
-        this.size = size;
+    public void setSandwichSize(SandwichSize sandwichSize) {
+        this.sandwichSize = sandwichSize;
     }
 
     public boolean isToasted() {
@@ -77,7 +77,7 @@ public class Sandwich {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("Bread: ").append(bread).append("\n");
-        sb.append("Size: ").append(size).append("\n");
+        sb.append("Size: ").append(sandwichSize).append("\n");
         sb.append("Toppings:\n");
         for (Topping topping : toppings){
             sb.append("- ").append(topping.getName()).append("\n");
