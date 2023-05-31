@@ -48,7 +48,7 @@ public class DrinksMenu {
         System.out.println("Please choose size: SMALL, MEDIUM, LARGE");
         String size = scanner.nextLine();
     }
-    d.size -> DrinkSize
+   // d.size -> DrinkSize
 
 
     private ArrayList<Beverage> beverageList = new ArrayList<>();
