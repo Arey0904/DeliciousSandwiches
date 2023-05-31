@@ -25,9 +25,9 @@ public class Topping {
         double price = 0;
         for (Topping t : initializeToppings()){
             if (t.getName().equalsIgnoreCase(topping)){
-                if (OrderScreen.size == Size.FOUR_IN){
+                if (OrderScreen.size == SandwichSize.FOUR_IN){
                     price = t.basePrice;
-                } else if (OrderScreen.size == Size.EIGHT_IN) {
+                } else if (OrderScreen.size == SandwichSize.EIGHT_IN) {
                     price = t.basePrice * 2;
                 } else {
                     price = t.basePrice * 3;
