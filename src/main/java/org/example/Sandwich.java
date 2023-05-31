@@ -7,16 +7,16 @@ public class Sandwich {
     private double basePrice;
     private Bread bread;
     private List<Topping> toppings;
-    private List<Sauce> sauces;
     private Size size;
     private boolean isToasted;
+    private double totalToppingPrice;
 
-    public Sandwich(double basePrice, Bread bread, List<Topping> toppings, Size size, List<Sauce> sauces, boolean isToasted) {
+
+    public Sandwich(double basePrice, Bread bread, List<Topping> toppings, Size size, boolean isToasted) {
         this.basePrice = basePrice;
         this.bread = bread;
         this.toppings = toppings;
         this.size = size;
-        this.sauces = sauces;
         this.isToasted = false; //default option is not toasted
     }
 
@@ -26,6 +26,20 @@ public class Sandwich {
             case EIGHT_IN -> basePrice = 7.00;
             case TWELVE_IN ->  basePrice = 8.50;
         } return basePrice;
+    }
+
+    public double calculateTotalToppings(){
+        for (Topping t : toppings){
+            totalToppingPrice += t.getToppingPrice(t.getName());
+        } return totalToppingPrice;
+    }
+
+    public double getTotalToppingPrice() {
+        return totalToppingPrice;
+    }
+
+    public void setTotalToppingPrice(double totalToppingPrice) {
+        this.totalToppingPrice = totalToppingPrice;
     }
 
     public Bread getBread() {
@@ -56,16 +70,8 @@ public class Sandwich {
         toppings.add(topping);
     }
 
-    public double calculateToppingPrice(){
-        double toppingsPrice = 0.0;
-        for (Topping topping : toppings){
-            toppingsPrice += topping.getPrice();
-        }
-        return toppingsPrice;
-    }
-
-    public double calculateTotalPrice(){
-        return basePrice + calculateToppingPrice();
+    public double getPrice(){
+        return this.basePrice + totalToppingPrice;
     }
 
     public String toString(){
@@ -77,8 +83,7 @@ public class Sandwich {
             sb.append("- ").append(topping.getName()).append("\n");
         }
         sb.append("Toasted: ").append(isToasted ? "Yes" : "No").append("\n");
-        sb.append("Price: $").append(calculateTotalPrice()).append("\n");
+        sb.append("Price: $").append(getPrice()).append("\n");
         return sb.toString();
     }
-
 }
