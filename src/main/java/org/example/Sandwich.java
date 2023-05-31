@@ -7,14 +7,16 @@ public class Sandwich {
     private double basePrice;
     private Bread bread;
     private List<Topping> toppings;
+    private List<Sauce> sauces;
     private Size size;
     private boolean isToasted;
 
-    public Sandwich(double basePrice, Bread bread, List<Topping> toppings, Size size, boolean isToasted) {
+    public Sandwich(double basePrice, Bread bread, List<Topping> toppings, Size size, List<Sauce> sauces, boolean isToasted) {
         this.basePrice = basePrice;
         this.bread = bread;
         this.toppings = toppings;
         this.size = size;
+        this.sauces = sauces;
         this.isToasted = false; //default option is not toasted
     }
 
@@ -23,7 +25,7 @@ public class Sandwich {
             case FOUR_IN -> basePrice = 5.50;
             case EIGHT_IN -> basePrice = 7.00;
             case TWELVE_IN ->  basePrice = 8.50;
-        }
+        } return basePrice;
     }
 
     public Bread getBread() {
@@ -56,7 +58,7 @@ public class Sandwich {
 
     public double calculateToppingPrice(){
         double toppingsPrice = 0.0;
-        for (Topping topping : toppins){
+        for (Topping topping : toppings){
             toppingsPrice += topping.getPrice();
         }
         return toppingsPrice;
