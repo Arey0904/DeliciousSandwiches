@@ -1,0 +1,13 @@
+Custom Sandwich 1:
+Bread: WHITE
+Size: EIGHT_IN
+Toppings:
+- Steak
+- Guacamole
+- Tomatoes
+- Jalapenos
+Toasted: Yes
+Price: $11.0
+
+
+Total Cost: $13.0
