@@ -14,12 +14,12 @@ public class OrderFileManager {
                 receipt.append("- ").append(topping.getName()).append("\n");
             }
             receipt.append("Toasted: ").append(s.isToasted() ? "Yes" : "No").append("\n");
-            receipt.append("Price: $").append(s.getPrice()).append("\n");
+            receipt.append("Price: $").append(s.getTotalSandwichPrice()).append("\n");
             sandwichCount += 1;
         }
 
         receipt.append("\n");
-        for (Beverage d : order.getDrinks()) {
+        for (Drink d : order.getDrinks()) {
             receipt.append(d.getSize()).append(" - ").append(d.getType()).append("  $").append(d.getPrice()).append("\n\n");
         }
 
@@ -33,7 +33,7 @@ public class OrderFileManager {
         System.out.println(receipt);
     }
 
-    public void saveReceipt(){
+    public void saveReceipt(Order order){
 
     }
 }

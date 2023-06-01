@@ -10,32 +10,23 @@ public class Topping {
     public Topping(String name, double basePrice) {
         this.name = name;
         this.basePrice = basePrice;
-
     }
 
     public String getName() {
         return name;
     }
 
-    public double getBasePrice() {
-        return basePrice;
-    }
-
-    public double getToppingPrice(String topping) {
+    public double getToppingPrice(Topping t, SandwichSize sandwichSize) {
         double price = 0;
-        for (Topping t : initializeToppings()){
-            if (t.getName().equalsIgnoreCase(topping)){
-                if (OrderScreen.size == SandwichSize.FOUR_IN){
-                    price = t.basePrice;
-                } else if (OrderScreen.size == SandwichSize.EIGHT_IN) {
-                    price = t.basePrice * 2;
-                } else {
-                    price = t.basePrice * 3;
-                }
-            }
-        } return price;
+        if (sandwichSize == SandwichSize.FOUR_IN){
+            price = t.basePrice;
+        }else if (sandwichSize == SandwichSize.EIGHT_IN) {
+            price = t.basePrice * 2;
+        }else {
+            price = t.basePrice * 3;
+        }
+        return price;
     }
-
 
     public static List<Topping> initializeToppings() {
 
