@@ -6,10 +6,9 @@ import java.util.Scanner;
 
 public class Application {
     public Scanner scanner = new Scanner(System.in);
-    public SandwichSize sandwichSize = null;
     OrderFileManager OFM = new OrderFileManager();
 
-    public void screen() {
+    public void homeScreen() {
         int option;
 
         do {
@@ -113,10 +112,11 @@ public class Application {
         int sandwichChoice = scanner.nextInt();
         scanner.nextLine();
 
+        Sandwich customizedSandwich = new Sandwich(bread);
         switch (sandwichChoice) {
-            case 1 -> sandwichSize = SandwichSize.FOUR_IN;
-            case 2 -> sandwichSize = SandwichSize.EIGHT_IN;
-            case 3 -> sandwichSize = SandwichSize.TWELVE_IN;
+            case 1 -> customizedSandwich.setSandwichSize(SandwichSize.FOUR_IN);
+            case 2 -> customizedSandwich.setSandwichSize(SandwichSize.EIGHT_IN);
+            case 3 -> customizedSandwich.setSandwichSize(SandwichSize.TWELVE_IN);
             default -> System.out.println("Invalid bread choice. Please try again");
         }
 
@@ -126,8 +126,6 @@ public class Application {
         System.out.println("Select toppings (separate with comma, e.g., Lettuce, Extra meat, Provolone): ");
         String toppingsInput = scanner.nextLine();
         String[] toppingsArray = toppingsInput.split(",");
-
-        Sandwich customizedSandwich = new Sandwich(bread, sandwichSize);
 
         for (String topping : toppingsArray) {
             Topping t = isToppingValid(topping);
@@ -191,9 +189,9 @@ public class Application {
     private void addChip(Order order) {
         System.out.println("Add Chips");
         System.out.println("=========");
+        scanner.nextLine();
 
-
-        System.out.println("Chip name: ");
+        System.out.println("Choose chips: Regular, Kettle, Tortilla");
         String name = scanner.nextLine();
 
         Chip chip = new Chip(name);
@@ -211,11 +209,13 @@ public class Application {
                         - Roast Beef
                         - Chicken
                         - Bacon
+                        - Extra Meat
                     Cheese:
                         - American
                         - Provolone
                         - Cheddar
                         - Swiss
+                        - Extra Cheese
                     Other Toppings:
                         - Lettuce
                         - Peppers
@@ -230,7 +230,7 @@ public class Application {
                         - Mayo
                         - Mustard
                         - Ketchup
-                        _ Ranch
+                        - Ranch
                         - Thousand Islands
                         - Vinaigrette
                     """;

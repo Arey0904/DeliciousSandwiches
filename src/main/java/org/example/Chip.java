@@ -1,19 +1,24 @@
 package org.example;
 
 class Chip {
-    private String type;
-    private double price;
+    private ChipType type;
+    private double price = 1.50;
 
-    public Chip(String type, double price) {
-        this.type = type;
-        this.price = 1.50;
+    public Chip(String type) {
+        if (type.equals("Regular")){
+            this.type = ChipType.REGULAR;
+        } else if (type.equals("Kettle")){
+            this.type = ChipType.KETTLE;
+        } else {
+            this.type = ChipType.TORTILLA;
+        }
     }
 
-    public String getType() {
+    public ChipType getType() {
         return type;
     }
 
-    public double getChipPrice() {
+    public double getPrice() {
         return price;
     }
 

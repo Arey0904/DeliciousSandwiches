@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich {
-
     private double basePrice;
     private Bread bread;
     private List<Topping> toppings;
@@ -12,16 +11,15 @@ public class Sandwich {
     private boolean isToasted;
     private double totalToppingPrice;
 
-    public Sandwich(Bread bread,SandwichSize sandwichSize ) {
+    public Sandwich(Bread bread) {
         this.basePrice = basePrice;
         this.bread = bread;
         this.toppings = new ArrayList<>();
-        this.sandwichSize = sandwichSize;
         this.isToasted = false; //default option is not toasted
     }
 
     public double getBasePrice() {
-        switch (sandwichSize){
+        switch (this.sandwichSize){
             case FOUR_IN -> basePrice = 5.50;
             case EIGHT_IN -> basePrice = 7.00;
             case TWELVE_IN ->  basePrice = 8.50;
@@ -46,6 +44,10 @@ public class Sandwich {
         return sandwichSize;
     }
 
+    public void setSandwichSize(SandwichSize sandwichSize) {
+        this.sandwichSize = sandwichSize;
+    }
+
     public boolean isToasted() {
         return isToasted;
     }
@@ -59,7 +61,7 @@ public class Sandwich {
     }
 
     public double getTotalSandwichPrice(){
-        return this.basePrice + calculateTotalToppings();
+        return getBasePrice() + calculateTotalToppings();
     }
 
     public String toString(){

@@ -38,10 +38,10 @@ public class Topping {
         toppings.add(new Topping("Chicken",  1.0));
         toppings.add(new Topping("Bacon", 1.0));
         toppings.add(new Topping("Extra Meat", 0.50));
-        toppings.add(new Topping("American Cheese", 0.75));
-        toppings.add(new Topping("Provolone Cheese", 0.75));
-        toppings.add(new Topping("Cheddar Cheese", 0.75));
-        toppings.add(new Topping("Swiss Cheese", 0.75));
+        toppings.add(new Topping("American", 0.75));
+        toppings.add(new Topping("Provolone", 0.75));
+        toppings.add(new Topping("Cheddar", 0.75));
+        toppings.add(new Topping("Swiss", 0.75));
         toppings.add(new Topping("Extra Cheese", 0.30));
         toppings.add(new Topping("Lettuce", 0.0));
         toppings.add(new Topping("Peppers", 0.0));
