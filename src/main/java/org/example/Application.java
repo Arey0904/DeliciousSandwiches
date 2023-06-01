@@ -197,6 +197,7 @@ public class Application {
         String name = scanner.nextLine();
 
         Chip chip = new Chip(name);
+
         order.addChip(chip);
 
         System.out.println("Chips added.");
