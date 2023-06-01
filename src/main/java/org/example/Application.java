@@ -128,7 +128,7 @@ public class Application {
         String[] toppingsArray = toppingsInput.split(",");
 
         for (String topping : toppingsArray) {
-            Topping t = isToppingValid(topping);
+            Topping t = isToppingValid(topping.trim());
             if (t != null) {
                 customizedSandwich.addTopping(t);
             }
@@ -159,10 +159,7 @@ public class Application {
         System.out.println("Checkout");
         System.out.println("========");
 
-        OFM.generateReceipt(order);
-
         int option;
-
         do {
             System.out.println("1) Confirm");
             System.out.println("2) Cancel");
@@ -171,7 +168,7 @@ public class Application {
 
             switch (option) {
                 case 1:
-                    OFM.saveReceipt(order);
+                    OFM.generateReceipt(order);
                     System.out.println("Order confirmed. Receipt created.");
                     return;
                 case 2:

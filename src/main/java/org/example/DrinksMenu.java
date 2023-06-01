@@ -51,7 +51,7 @@ public class DrinksMenu {
 
     private ArrayList<Drink> beverageList = new ArrayList<>();
 
-    public void Drink(){
+    public void loadDrinks(){
     this.beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.WATER));
     this.beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.WATER));
     this.beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.WATER));

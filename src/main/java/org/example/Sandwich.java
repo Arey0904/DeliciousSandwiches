@@ -12,17 +12,16 @@ public class Sandwich {
     private double totalToppingPrice;
 
     public Sandwich(Bread bread) {
-        this.basePrice = basePrice;
         this.bread = bread;
         this.toppings = new ArrayList<>();
         this.isToasted = false; //default option is not toasted
     }
 
     public double getBasePrice() {
-        switch (this.sandwichSize){
+        switch (sandwichSize){
             case FOUR_IN -> basePrice = 5.50;
             case EIGHT_IN -> basePrice = 7.00;
-            case TWELVE_IN ->  basePrice = 8.50;
+            case TWELVE_IN -> basePrice = 8.50;
         } return basePrice;
     }
 

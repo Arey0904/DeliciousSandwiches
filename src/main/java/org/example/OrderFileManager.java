@@ -1,5 +1,13 @@
 package org.example;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
 public class OrderFileManager {
     public void generateReceipt(Order order){
         StringBuilder receipt = new StringBuilder();
@@ -30,10 +38,21 @@ public class OrderFileManager {
 
         receipt.append("Total Cost: $").append(order.calculateTotalPrice());
 
+        saveReceipt(receipt);
+
         System.out.println(receipt);
     }
 
-    public void saveReceipt(Order order){
+    public void saveReceipt(StringBuilder receipt){
+        String filename = LocalDate.now() + "-" + LocalTime.now().truncatedTo(ChronoUnit.SECONDS) + ".txt";
+        File record = new File("/DeliciousSandwiches/Receipts/" + filename);
 
+        try (FileWriter fileWriter = new FileWriter(filename)){
+            fileWriter.write(String.valueOf(receipt));
+
+            System.out.println("Receipt on " + LocalDate.now() + "-" + LocalTime.now().truncatedTo(ChronoUnit.SECONDS) + "saved to Receipts folder successfully!");
+        } catch (IOException e) {
+            System.err.println("Error saving receipt to folder");
+        }
     }
 }
