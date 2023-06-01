@@ -85,6 +85,7 @@ public class Application {
     }
 
     private void addSandwich(Order order) {
+        //displays the bread choices and allows the user to select an option
         System.out.println("Creating Sandwich...");
         System.out.println("Select your bread: ");
         System.out.println("[1] White");
@@ -104,6 +105,7 @@ public class Application {
             default -> System.out.println("Invalid bread choice. Please try again");
         }
 
+        //displays the sandwich size choices and allows the user to select an option
         System.out.println("Select your sandwich size: ");
         System.out.println("[1] 4 inch");
         System.out.println("[2] 8 inch");
@@ -122,7 +124,7 @@ public class Application {
 
         //display the list of toppings
         System.out.println(toppingMenu);;
-        //allow the user to enter their toppings of choice
+        //allow the user to enter their toppings of choice and parses them by comma
         System.out.println("Select toppings (separate with comma, e.g., Lettuce, Extra meat, Provolone): ");
         String toppingsInput = scanner.nextLine();
         String[] toppingsArray = toppingsInput.split(",");
@@ -133,7 +135,7 @@ public class Application {
                 customizedSandwich.addTopping(t);
             }
         }
-
+        //prompts for the toasted options and add the sandwich to the order
         System.out.println("Would you like yur sandwich toasted? (yes/no)");
         System.out.print("Enter your choice: ");
         String toastedChoice = scanner.nextLine();
@@ -200,40 +202,33 @@ public class Application {
     }
 
     String toppingMenu = """
-                    Meats:
-                        - Steak
-                        - Ham
-                        - Salami
+                    
+                       ---------------Meats------------------
+                        - Steak             - Chicken
+                        - Ham               - Bacon
+                        - Salami            - Extra Meat
                         - Roast Beef
-                        - Chicken
-                        - Bacon
-                        - Extra Meat
-                    Cheese:
-                        - American
-                        - Provolone
+                       ---------------Cheese------------------
+                        - American          - Swiss
+                        - Provolone         - Extra Cheese
                         - Cheddar
-                        - Swiss
-                        - Extra Cheese
-                    Other Toppings:
-                        - Lettuce
-                        - Peppers
-                        - Onion
-                        - Tomatoes
+                        -----------Other Toppings-------------
+                        - Lettuce           - Cucumbers
+                        - Peppers           - Pickles
+                        - Onion             - Guacamole
+                        - Tomatoes          - Mushrooms
                         - Jalapenos
-                        - Cucumbers
-                        - Pickles
-                        - Guacamole
-                        - Mushrooms
-                    Sauces:
-                        - Mayo
-                        - Mustard
-                        - Ketchup
-                        - Ranch
-                        - Thousand Islands
-                        - Vinaigrette
+                        --------------Sauces------------------
+                        - Mayo              - Ranch
+                        - Mustard           - Thousand Islands
+                        - Ketchup           - Vinaigrette
+                        ---------------Sides------------------
+                        - Au Jus            - Sauce
+                        
                     """;
 
     private Topping isToppingValid(String toppingName) {
+        // checks if the toppings entered match the topping options if it does it returns the selected topping
         Topping topping = null;
         List<Topping> toppings = Topping.initializeToppings();
         for (Topping t : toppings) {
