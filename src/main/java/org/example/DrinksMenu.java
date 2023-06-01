@@ -4,78 +4,56 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DrinksMenu {
-    public static void runDrinkMenu(){
-    Scanner scanner = new Scanner(System.in);
-      System.out.println("""
-                Please select your Drink:
-                [1] - Soda
-                [2] - Juice
-                [3] - Water
-                [0] - EXIT""");
-    String input = scanner.nextLine();
-        switch (input.toUpperCase()) {
-            case "1":
-                Soda();
-                break;
-            case "2":
-                Juice();
-                break;
-            case "3":
-                Water();
-                break;
-            case "0":
-                System.exit(0);
-            default:
-                System.out.println("Please enter a valid option");
-                break;
+    public static Scanner scanner = new Scanner(System.in);
+    public static void runDrinkMenu(Order order){
+        System.out.println("Choose Drink: Water, Coke, Sprite, Dr Pepper, Orange Fanta, Strawberry Fanta");
+        String type = scanner.nextLine();
+
+        System.out.println("Choose size: Small, Medium, Large");
+        String size = scanner.nextLine();
+
+        for (Drink drink : drinkList){
+            if (size.equals(drink.getSize().getName()) && type.equals(drink.getType().getName())){
+                order.addDrink(drink);
+            }
         }
     }
-    private static void Water() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please choose size: SMALL, MEDIUM, LARGE");
-        String size = scanner.nextLine();
-    }
 
-    private static void Juice() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please choose size: SMALL, MEDIUM, LARGE");
-        String size = scanner.nextLine();
-    }
+    private static ArrayList<Drink> drinkList = loadDrinks();
 
-    public static void Soda() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please choose size: SMALL, MEDIUM, LARGE");
-        String size = scanner.nextLine();
-    }
-   // d.size -> DrinkSize
+    public static ArrayList<Drink> loadDrinks(){
+        ArrayList<Drink> beverageList = new ArrayList<>();
 
-    private ArrayList<Drink> beverageList = new ArrayList<>();
+        beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.WATER));
+        beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.WATER));
+        beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.WATER));
+        beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.COKE));
+        beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.COKE));
+        beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.COKE));
+        beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.SPRITE));
+        beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.SPRITE));
+        beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.SPRITE));
+        beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.DR_PEPPER));
+        beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.DR_PEPPER));
+        beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.DR_PEPPER));
+        beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.ORANGE_FANTA));
+        beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.ORANGE_FANTA));
+        beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.ORANGE_FANTA));
+        beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.STRAWBERRY_FANTA));
+        beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.STRAWBERRY_FANTA));
+        beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.STRAWBERRY_FANTA));
 
-    public void loadDrinks(){
-    this.beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.WATER));
-    this.beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.WATER));
-    this.beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.WATER));
-    this.beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.COKE));
-    this.beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.COKE));
-    this.beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.COKE));
-    this.beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.SPRITE));
-    this.beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.SPRITE));
-    this.beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.SPRITE));
-    this.beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.DR_PEPPER));
-    this.beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.DR_PEPPER));
-    this.beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.DR_PEPPER));
-    this.beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.ORANGE_FANTA));
-    this.beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.ORANGE_FANTA));
-    this.beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.ORANGE_FANTA));
-    this.beverageList.add( new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.STRAWBERRY_FANTA));
-    this.beverageList.add( new Drink(DrinkSizeType.MEDIUM, 2.50, DrinkType.STRAWBERRY_FANTA));
-    this.beverageList.add( new Drink(DrinkSizeType.LARGE, 3.00, DrinkType.STRAWBERRY_FANTA));
+        return beverageList;
 }
 
-    public double findPrice(DrinkSizeType size, DrinkType type) {
-        double value = 0.0;
-        for (Drink b : beverageList) {
-            if (b.getSize() == size && b.getType() == type) value = b.getPrice();
+    public double getPrice(Drink drink) {
+        double value;
+        if (drink.getSize() == DrinkSizeType.SMALL){
+            value = 2.0;
+        } else if (drink.getSize() == DrinkSizeType.MEDIUM){
+            value = 2.5;
+        } else {
+            value = 3.0;
         }
         return value;
     }
