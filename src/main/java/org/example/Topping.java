@@ -43,21 +43,23 @@ public class Topping {
         toppings.add(new Topping("Cheddar", 0.75));
         toppings.add(new Topping("Swiss", 0.75));
         toppings.add(new Topping("Extra Cheese", 0.30));
-        toppings.add(new Topping("Lettuce", 0.0));
-        toppings.add(new Topping("Peppers", 0.0));
-        toppings.add(new Topping("Onions", 0.0));
-        toppings.add(new Topping("Tomatoes", 0.0));
-        toppings.add(new Topping("Jalapenos", 0.0));
-        toppings.add(new Topping("Cucumbers", 0.0));
-        toppings.add(new Topping("Pickles", 0.0));
-        toppings.add(new Topping("Guacamole", 0.0));
-        toppings.add(new Topping("Mushrooms", 0.0));
-        toppings.add(new Topping("Mayo", 0.0));
-        toppings.add(new Topping("Mustard", 0.0));
-        toppings.add(new Topping("Ketchup", 0.0));
-        toppings.add(new Topping("Ranch", 0.0));
-        toppings.add(new Topping("Thousand Islands", 0.0));
-        toppings.add(new Topping("Vinaigrette", 0.0));
+        toppings.add(new Topping("Lettuce", 0.00));
+        toppings.add(new Topping("Peppers", 0.00));
+        toppings.add(new Topping("Onions", 0.00));
+        toppings.add(new Topping("Tomatoes", 0.00));
+        toppings.add(new Topping("Jalapenos", 0.00));
+        toppings.add(new Topping("Cucumbers", 0.00));
+        toppings.add(new Topping("Pickles", 0.00));
+        toppings.add(new Topping("Guacamole", 0.00));
+        toppings.add(new Topping("Mushrooms", 0.00));
+        toppings.add(new Topping("Mayo", 0.00));
+        toppings.add(new Topping("Mustard", 0.00));
+        toppings.add(new Topping("Ketchup", 0.00));
+        toppings.add(new Topping("Ranch", 0.00));
+        toppings.add(new Topping("Thousand Islands", 0.00));
+        toppings.add(new Topping("Vinaigrette", 0.00));
+        toppings.add(new Topping("Au Jus", 0.00));
+        toppings.add(new Topping("Sauce",0.00));
 
         return toppings;
     }

@@ -202,7 +202,7 @@ public class Application {
 
     String toppingMenu = """
                     
-                       ----------------Meats-----------------
+                       ---------------Meats------------------
                         - Steak             - Chicken
                         - Ham               - Bacon
                         - Salami            - Extra Meat
@@ -217,10 +217,12 @@ public class Application {
                         - Onion             - Guacamole
                         - Tomatoes          - Mushrooms
                         - Jalapenos
-                        -------------Sauces-------------------
+                        --------------Sauces------------------
                         - Mayo              - Ranch
                         - Mustard           - Thousand Islands
                         - Ketchup           - Vinaigrette
+                        ---------------Sides------------------
+                        - Au Jus            - Sauce
                         
                     """;
 
