@@ -8,17 +8,14 @@ public class Sandwich {
     private double basePrice;
     private Bread bread;
     private List<Topping> toppings;
-    private List<Sauce> sauce;
     private SandwichSize sandwichSize;
     private boolean isToasted;
     private double totalToppingPrice;
-
 
     public Sandwich(Bread bread,SandwichSize sandwichSize ) {
         this.basePrice = basePrice;
         this.bread = bread;
         this.toppings = new ArrayList<>();
-        this.sauce = new ArrayList<>();
         this.sandwichSize = sandwichSize;
         this.isToasted = false; //default option is not toasted
     }
@@ -33,16 +30,8 @@ public class Sandwich {
 
     public double calculateTotalToppings(){
         for (Topping t : toppings){
-            totalToppingPrice += t.getToppingPrice(t.getName());
+            totalToppingPrice += t.getToppingPrice(t, sandwichSize);
         } return totalToppingPrice;
-    }
-
-    public double getTotalToppingPrice() {
-        return totalToppingPrice;
-    }
-
-    public void setTotalToppingPrice(double totalToppingPrice) {
-        this.totalToppingPrice = totalToppingPrice;
     }
 
     public Bread getBread() {
@@ -57,10 +46,6 @@ public class Sandwich {
         return sandwichSize;
     }
 
-    public void setSandwichSize(SandwichSize sandwichSize) {
-        this.sandwichSize = sandwichSize;
-    }
-
     public boolean isToasted() {
         return isToasted;
     }
@@ -73,8 +58,8 @@ public class Sandwich {
         toppings.add(topping);
     }
 
-    public double getPrice(){
-        return this.basePrice + totalToppingPrice;
+    public double getTotalSandwichPrice(){
+        return this.basePrice + calculateTotalToppings();
     }
 
     public String toString(){
@@ -86,7 +71,7 @@ public class Sandwich {
             sb.append("- ").append(topping.getName()).append("\n");
         }
         sb.append("Toasted: ").append(isToasted ? "Yes" : "No").append("\n");
-        sb.append("Price: $").append(getPrice()).append("\n");
+        sb.append("Price: $").append(getTotalSandwichPrice()).append("\n");
         return sb.toString();
     }
 }

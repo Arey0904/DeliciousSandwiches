@@ -6,16 +6,10 @@ import java.util.Scanner;
 
 public class Application {
     public Scanner scanner = new Scanner(System.in);
-    private Menu menu;
-    private Order[] orders;
-
-    public Application() {
-        menu = new Menu();
-
-    }
+    public SandwichSize sandwichSize = null;
+    OrderFileManager OFM = new OrderFileManager();
 
     public void screen() {
-        Scanner scanner = new Scanner(System.in);
         int option;
 
         do {
@@ -49,7 +43,6 @@ public class Application {
 
     private void orderScreen() {
         Order order = new Order();
-        Scanner scanner = new Scanner(System.in);
         int option;
 
         do {
@@ -64,7 +57,7 @@ public class Application {
                     addDrink(order);
                     break;
                 case 3:
-                    addChips(order);
+                    addChip(order);
                     break;
                 case 4:
                     checkoutOrder(order);
@@ -120,8 +113,6 @@ public class Application {
         int sandwichChoice = scanner.nextInt();
         scanner.nextLine();
 
-
-        SandwichSize sandwichSize = null;
         switch (sandwichChoice) {
             case 1 -> sandwichSize = SandwichSize.FOUR_IN;
             case 2 -> sandwichSize = SandwichSize.EIGHT_IN;
@@ -137,13 +128,14 @@ public class Application {
         String[] toppingsArray = toppingsInput.split(",");
 
         Sandwich customizedSandwich = new Sandwich(bread, sandwichSize);
+
         for (String topping : toppingsArray) {
-            if (isToppingValid(topping.trim())) {
-                customizedSandwich.addTopping(topping.trim());
-            } else {
-                System.out.println("Invalid topping: " + topping);
+            Topping t = isToppingValid(topping);
+            if (t != null) {
+                customizedSandwich.addTopping(t);
             }
         }
+
         System.out.println("Would you like yur sandwich toasted? (yes/no)");
         System.out.print("Enter your choice: ");
         String toastedChoice = scanner.nextLine();
@@ -160,20 +152,7 @@ public class Application {
 
 
     private void addDrink(Order order) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Add Drink");
-        System.out.println("=========");
-
-        System.out.println("Drink name: ");
-        String name = scanner.nextLine();
-
-        System.out.println("Drink size: ");
-        int size = scanner.nextInt();
-
-        double price = menu.getDrinkPrice(size);
-        Drink drink = new Drink(name, size, price);
-        order.addDrink(drink);
+        DrinksMenu.runDrinkMenu();
 
         System.out.println("Drink added.");
     }
@@ -182,10 +161,8 @@ public class Application {
         System.out.println("Checkout");
         System.out.println("========");
 
-        order.displayOrderDetails();
-        System.out.println("Total cost: $" + order.TotalCost());
+        OFM.generateReceipt(order);
 
-        Scanner scanner = new Scanner(System.in);
         int option;
 
         do {
@@ -196,7 +173,7 @@ public class Application {
 
             switch (option) {
                 case 1:
-                    order.saveReceipt();
+                    OFM.saveReceipt(order);
                     System.out.println("Order confirmed. Receipt created.");
                     return;
                 case 2:
@@ -212,8 +189,6 @@ public class Application {
     }
 
     private void addChip(Order order) {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("Add Chips");
         System.out.println("=========");
 
@@ -259,14 +234,15 @@ public class Application {
                         - Vinaigrette
                     """;
 
-    private boolean isToppingValid(String topping) {
+    private Topping isToppingValid(String toppingName) {
+        Topping topping = null;
         List<Topping> toppings = Topping.initializeToppings();
         for (Topping t : toppings) {
-            if (t.getName().equalsIgnoreCase(topping)) {
-                return true;
+            if (t.getName().equalsIgnoreCase(toppingName)) {
+                 topping = t;
             }
         }
-        return false;
+        return topping;
     }
 }
 
