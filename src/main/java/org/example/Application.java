@@ -147,7 +147,7 @@ public class Application {
         }
 
         order.addSandwich(customizedSandwich);
-        System.out.println("The following sandwich has been added to your order\n" + customizedSandwich.toString());
+        System.out.println("The sandwich below has been added to your order:\n" + customizedSandwich.toString());
     }
 
 

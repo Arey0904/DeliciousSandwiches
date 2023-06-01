@@ -18,17 +18,19 @@ public class Sandwich {
     }
 
     public double getBasePrice() {
-        switch (sandwichSize){
+        switch (sandwichSize) {
             case FOUR_IN -> basePrice = 5.50;
             case EIGHT_IN -> basePrice = 7.00;
             case TWELVE_IN -> basePrice = 8.50;
-        } return basePrice;
+        }
+        return basePrice;
     }
 
-    public double calculateTotalToppings(){
-        for (Topping t : toppings){
+    public double calculateTotalToppings() {
+        for (Topping t : toppings) {
             totalToppingPrice += t.getToppingPrice(t, sandwichSize);
-        } return totalToppingPrice;
+        }
+        return totalToppingPrice;
     }
 
     public Bread getBread() {
@@ -55,24 +57,36 @@ public class Sandwich {
         isToasted = toasted;
     }
 
-    public void addTopping(Topping topping){
+    public void addTopping(Topping topping) {
         toppings.add(topping);
     }
 
-    public double getTotalSandwichPrice(){
+    public double getTotalSandwichPrice() {
         return getBasePrice() + calculateTotalToppings();
     }
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Bread: ").append(bread).append("\n");
         sb.append("Size: ").append(sandwichSize).append("\n");
         sb.append("Toppings:\n");
-        for (Topping topping : toppings){
-            sb.append("- ").append(topping.getName()).append("\n");
+        for (Topping topping : toppings) {
+            String toppingName = topping.getName();
+            if (!toppingName.equals("Au Jus") && !toppingName.equals("Sauce")) {
+                sb.append("- ").append(toppingName).append("\n");
+            }
+        }
+
+        sb.append("Sides:\n"); //appends only Au Jus and Sauce to the sides breakdown of the sandwich all other topping go under Toppings:
+        for (Topping topping : toppings) {
+            String toppingName = topping.getName();
+            if (toppingName.equals("Au Jus") || toppingName.equals("Sauce")) {
+                sb.append("- ").append(toppingName).append("\n");
+            }
         }
         sb.append("Toasted: ").append(isToasted ? "Yes" : "No").append("\n");
         sb.append("Price: $").append(getTotalSandwichPrice()).append("\n");
         return sb.toString();
+
     }
 }
