@@ -139,7 +139,7 @@ public class Application {
         Sandwich customizedSandwich = new Sandwich(bread, sandwichSize);
         for (String topping : toppingsArray) {
             if (isToppingValid(topping.trim())) {
-                customizedSandwich.addTopping(topping);
+                customizedSandwich.addTopping(topping.trim());
             } else {
                 System.out.println("Invalid topping: " + topping);
             }
