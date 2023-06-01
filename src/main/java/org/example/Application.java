@@ -1,10 +1,11 @@
 package org.example;
 
 
-
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
+    public Scanner scanner = new Scanner(System.in);
     private Menu menu;
     private Order[] orders;
 
@@ -91,6 +92,73 @@ public class Application {
         System.out.print("Enter your option: ");
     }
 
+    private void addSandwich(Order order) {
+        System.out.println("Creating Sandwich...");
+        System.out.println("Select your bread: ");
+        System.out.println("[1] White");
+        System.out.println("[2] Wheat");
+        System.out.println("[3] Rye");
+        System.out.println("[4] Wrap");
+        System.out.print("Enter your choice: ");
+        int breadChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        Bread bread = null;
+        switch (breadChoice) {
+            case 1 -> bread = Bread.WHITE;
+            case 2 -> bread = Bread.WHEAT;
+            case 3 -> bread = Bread.RYE;
+            case 4 -> bread = Bread.WRAP;
+            default -> System.out.println("Invalid bread choice. Please try again");
+        }
+
+        System.out.println("Select your sandwich size: ");
+        System.out.println("[1] 4 inch");
+        System.out.println("[2] 8 inch");
+        System.out.println("[3] 12 inch");
+        System.out.print("Enter your choice: ");
+        int sandwichChoice = scanner.nextInt();
+        scanner.nextLine();
+
+
+        SandwichSize sandwichSize = null;
+        switch (sandwichChoice) {
+            case 1 -> sandwichSize = SandwichSize.FOUR_IN;
+            case 2 -> sandwichSize = SandwichSize.EIGHT_IN;
+            case 3 -> sandwichSize = SandwichSize.TWELVE_IN;
+            default -> System.out.println("Invalid bread choice. Please try again");
+        }
+
+        //display the list of toppings
+        System.out.println(toppingMenu);;
+        //allow the user to enter their toppings of choice
+        System.out.println("Select toppings (separate with comma, e.g., Lettuce, Extra meat, Provolone): ");
+        String toppingsInput = scanner.nextLine();
+        String[] toppingsArray = toppingsInput.split(",");
+
+        Sandwich customizedSandwich = new Sandwich(bread, sandwichSize);
+        for (String topping : toppingsArray) {
+            if (isToppingValid(topping.trim())) {
+                customizedSandwich.addTopping(topping);
+            } else {
+                System.out.println("Invalid topping: " + topping);
+            }
+        }
+        System.out.println("Would you like yur sandwich toasted? (yes/no)");
+        System.out.print("Enter your choice: ");
+        String toastedChoice = scanner.nextLine();
+
+        if (toastedChoice.equalsIgnoreCase("Yes")) {
+            customizedSandwich.setToasted(true);
+        } else {
+            customizedSandwich.setToasted(false);
+        }
+
+        order.addSandwich(customizedSandwich);
+        System.out.println("The following sandwich has been added to your order\n" + customizedSandwich.toString());
+    }
+
+
     private void addDrink(Order order) {
         Scanner scanner = new Scanner(System.in);
 
@@ -157,6 +225,48 @@ public class Application {
         order.addChip(chip);
 
         System.out.println("Chips added.");
+    }
+
+    String toppingMenu = """
+                    Meats:
+                        - Steak
+                        - Ham
+                        - Salami
+                        - Roast Beef
+                        - Chicken
+                        - Bacon
+                    Cheese:
+                        - American
+                        - Provolone
+                        - Cheddar
+                        - Swiss
+                    Other Toppings:
+                        - Lettuce
+                        - Peppers
+                        - Onion
+                        - Tomatoes
+                        - Jalapenos
+                        - Cucumbers
+                        - Pickles
+                        - Guacamole
+                        - Mushrooms
+                    Sauces:
+                        - Mayo
+                        - Mustard
+                        - Ketchup
+                        _ Ranch
+                        - Thousand Islands
+                        - Vinaigrette
+                    """;
+
+    private boolean isToppingValid(String topping) {
+        List<Topping> toppings = Topping.initializeToppings();
+        for (Topping t : toppings) {
+            if (t.getName().equalsIgnoreCase(topping)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

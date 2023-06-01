@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich {
@@ -7,15 +8,17 @@ public class Sandwich {
     private double basePrice;
     private Bread bread;
     private List<Topping> toppings;
+    private List<Sauce> sauce;
     private SandwichSize sandwichSize;
     private boolean isToasted;
     private double totalToppingPrice;
 
 
-    public Sandwich(double basePrice, Bread bread, List<Topping> toppings, SandwichSize sandwichSize, boolean isToasted) {
+    public Sandwich(Bread bread,SandwichSize sandwichSize) {
         this.basePrice = basePrice;
         this.bread = bread;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>();
+        this.sauce = new ArrayList<>();
         this.sandwichSize = sandwichSize;
         this.isToasted = false; //default option is not toasted
     }
