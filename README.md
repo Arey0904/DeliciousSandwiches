@@ -45,3 +45,22 @@ Will display the Home Screen that will include the selection options:
 
 
 - Checkout, once the user is done ordering you will be able to checkout in the home screen. From there the appliction will take from the file and auto-generaate the sum total of your order and will then ask you to pay.
+
+
+
+
+
+## Interesting peice of code
+
+
+
+
+
+
+
+
+## Credits/Team Members
+Aaron Rey
+Heralda Lamarre
+A'sha Shepard
+Cristi Savca
