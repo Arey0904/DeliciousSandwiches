@@ -8,11 +8,11 @@ The shop holds multiple files and uses it help the user order from the shop.
 
 Each order option contains the following data:
 
--Sandwiches
--Drinks
--Chips
--Checkout
--Cancel order
+- Sandwiches
+- Drinks
+- Chips
+- Checkout
+- Cancel order
 
 Each order input is saved into seperate files each named:
 
@@ -22,11 +22,11 @@ Each order input is saved into seperate files each named:
 
 There are five (5) screens in the application:
 
--Home screen
--Add sandwich screen
--Order Drink screen
--Order Chips Screen
--Checkout Screen
+- Home screen
+- Add sandwich screen
+- Order Drink screen
+- Order Chips Screen
+- Checkout Screen
 
 ## Home Screen
 
