@@ -7,6 +7,8 @@ public class DrinksMenu {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void runDrinkMenu(Order order) {
+        //This represents a method called runDrinkMenu, which takes an Order object as a parameter.
+        // The purpose of this method is to prompt the user to select a type and size of drink, and then add the selected drink to the given Order object.
         System.out.println("Choose Drink: Water, Coke, Sprite, Dr Pepper, Orange Fanta, Strawberry Fanta");
         String type = scanner.nextLine();
 
@@ -19,10 +21,11 @@ public class DrinksMenu {
             }
         }
     }
-
     private static ArrayList<Drink> drinkList = loadDrinks();
 
     public static ArrayList<Drink> loadDrinks() {
+        //This Java code defines a static ArrayList<Drink> variable named drinkList and initializes it with the result of calling the loadDrinks() method.
+        // The loadDrinks() method populates the beverageList with a series of Drink objects and returns it.
         ArrayList<Drink> beverageList = new ArrayList<>();
 
         beverageList.add(new Drink(DrinkSizeType.SMALL, 2.00, DrinkType.WATER));
