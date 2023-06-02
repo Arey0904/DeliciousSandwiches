@@ -16,6 +16,7 @@ public class Topping {
         return name;
     }
 
+    //multiplies the base topping prices by 2 or 3 depending on the sandwich size to get the right price
     public double getToppingPrice(Topping t, SandwichSize sandwichSize) {
         double price = 0;
         if (sandwichSize == SandwichSize.FOUR_IN){
