@@ -70,9 +70,10 @@ The order screen will display multiple menu options for the user to add to their
 ### Checkout Screen
 
 ## Interesting peice of code
+```
 
-### An Interesing Piece of Code
-![image](https://github.com/Arey0904/DeliciousSandwiches/assets/129906864/d38c8891-84e1-49cc-9851-58637b54262d)
+```
+
 
 
 
