@@ -71,7 +71,18 @@ The order screen will display multiple menu options for the user to add to their
 
 ## Interesting peice of code
 ```
-
+ public double getToppingPrice(Topping t, SandwichSize sandwichSize) {
+        //multiplies the base topping prices by 2 or 3 depending on the sandwich size to get the right price
+        double price = 0;
+        if (sandwichSize == SandwichSize.FOUR_IN){
+            price = t.basePrice;
+        }else if (sandwichSize == SandwichSize.EIGHT_IN) {
+            price = t.basePrice * 2;
+        }else {
+            price = t.basePrice * 3;
+        }
+        return price;
+    }
 ```
 
 
