@@ -4,8 +4,6 @@
 
 This Java project allows the user to create an order from a Deli Shop called DELI-cious Sandwiches.
 
-The shop holds multiple files and uses it help the user order from the shop.
-
 Each order can contain the following options:
 
 - Sandwiches
