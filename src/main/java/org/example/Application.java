@@ -31,14 +31,16 @@ public class Application {
 
         scanner.close();
     }
-
-    private void displayHomeScreen() { //Display Home screen options
-        System.out.println("DELI-cious Point of Sales Application");
-        System.out.println("=====================================");
-        System.out.println("1) New Order");
-        System.out.println("0) Exit");
-        System.out.print("Enter your option: ");
-    }
+        private void displayHomeScreen() { //Display Home screen options
+            System.out.println("""
+                               DELI-cious Point of Sales Application
+                                 
+                          ==================Menu Options=======================
+                                        1- New Order
+                                        0- Exit
+                                    Enter your option: 
+                                          """);
+        }
 
 
     private void orderScreen() {
@@ -77,25 +79,29 @@ public class Application {
     }
 
     private void displayOrderScreen() {
-        System.out.println("Order Screen");
-        System.out.println("============");
-        System.out.println("1) Add Sandwich");
-        System.out.println("2) Add Drink");
-        System.out.println("3) Add Chip");
-        System.out.println("4) Checkout");
-        System.out.println("0) Cancel Order");
-        System.out.print("Enter your option: ");
+        System.out.println("""
+                 
+        ==================Order Screen=========================
+                      1- Add Sandwich
+                      2- Add Drink
+                      3- Add Chip
+                      4- Checkout
+                      0- Cancel Order
+                      Enter your option:
+        """);
     }
 
     private void addSandwich(Order order) {
         //displays the bread choices and allows the user to select an option
-        System.out.println("Creating Sandwich...");
-        System.out.println("Select your bread: ");
-        System.out.println("[1] White");
-        System.out.println("[2] Wheat");
-        System.out.println("[3] Rye");
-        System.out.println("[4] Wrap");
-        System.out.print("Enter your choice: ");
+        System.out.println("""
+        =============Creating Sandwich...=========
+                       Select your bread:
+        [1] White                          [3]Rye
+        [2] Wheat                          [4]Wrap
+        
+                   Enter your choice: 
+                     
+        """);
         int breadChoice = scanner.nextInt();
         scanner.nextLine();
 
@@ -109,11 +115,14 @@ public class Application {
         }
 
         //displays the sandwich size choices and allows the user to select an option
-        System.out.println("Select your sandwich size: ");
-        System.out.println("[1] 4 inch");
-        System.out.println("[2] 8 inch");
-        System.out.println("[3] 12 inch");
-        System.out.print("Enter your choice: ");
+        System.out.println("""
+        ========== Select your sandwich size ==========
+                     [1] 4 inch
+                     [2] 8 inch
+                     [3] 12 inch
+                     
+                 Enter your choice: 
+                """);
         int sandwichChoice = scanner.nextInt();
         scanner.nextLine();
 
