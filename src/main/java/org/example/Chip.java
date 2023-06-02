@@ -1,6 +1,7 @@
 package org.example;
 
 class Chip {
+    //Hold type of chip using the ChipType enum
     private ChipType type;
     //set price for all chips
     private double price = 1.50;
