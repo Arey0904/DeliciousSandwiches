@@ -152,7 +152,7 @@ public class Application {
 
 
     private void addDrink(Order order) {
-        DrinksMenu.runDrinkMenu();
+        DrinksMenu.runDrinkMenu(order);
 
         System.out.println("Drink added.");
     }
@@ -167,11 +167,12 @@ public class Application {
             System.out.println("2) Cancel");
             System.out.print("Enter your option: ");
             option = scanner.nextInt();
+            OFM.generateReceipt(order);
 
             switch (option) {
                 case 1:
-                    OFM.generateReceipt(order);
-                    System.out.println("Order confirmed. Receipt created.");
+                    OFM.createReceipt();
+                    System.out.println("Order confirmed.");
                     return;
                 case 2:
                     System.out.println("Order cancelled.");

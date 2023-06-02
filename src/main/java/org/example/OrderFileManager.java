@@ -3,12 +3,11 @@ package org.example;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class OrderFileManager {
+    public String finalReceipt;
     public void generateReceipt(Order order){
         StringBuilder receipt = new StringBuilder();
         int sandwichCount = 1;
@@ -33,26 +32,39 @@ public class OrderFileManager {
 
         receipt.append("\n");
         for (Chip c : order.getChips()) {
-            receipt.append(c.getType()).append("  $").append(c.getPrice()).append("\n\n");
+            receipt.append(c.getType()).append(" Chips  $").append(c.getPrice()).append("\n\n");
         }
 
         receipt.append("Total Cost: $").append(order.calculateTotalPrice());
 
-        saveReceipt(receipt);
-
-        System.out.println(receipt);
+        finalReceipt = receipt.toString();
+        System.out.println(finalReceipt);
     }
 
-    public void saveReceipt(StringBuilder receipt){
-        String filename = LocalDate.now() + "-" + LocalTime.now().truncatedTo(ChronoUnit.SECONDS) + ".txt";
-        File record = new File("/DeliciousSandwiches/Receipts/" + filename);
+    public void createReceipt() {
+        String fileName = generateFileName();
+        String folderPath = "Receipts";
+        String filePath = folderPath + File.separator + fileName;
 
-        try (FileWriter fileWriter = new FileWriter(filename)){
-            fileWriter.write(String.valueOf(receipt));
+        try {
+            FileWriter writer = new FileWriter(filePath);
+            writer.write(finalReceipt);
+            writer.close();
 
-            System.out.println("Receipt on " + LocalDate.now() + "-" + LocalTime.now().truncatedTo(ChronoUnit.SECONDS) + "saved to Receipts folder successfully!");
+            // Write the receipt to the file
+            FileWriter fileWriter = new FileWriter(filePath);
+            fileWriter.write(finalReceipt);
+            fileWriter.close();
+            System.out.println("Receipt created: " + fileName);
         } catch (IOException e) {
-            System.err.println("Error saving receipt to folder");
+            System.out.println("Error creating receipt: " + fileName);
         }
+    }
+
+    private String generateFileName() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
+        String timestamp = now.format(formatter);
+        return timestamp + ".txt";
     }
 }

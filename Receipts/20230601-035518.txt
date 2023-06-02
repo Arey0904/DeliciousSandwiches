@@ -1,0 +1,17 @@
+Custom Sandwich 1:
+Bread: WHITE
+Size: EIGHT_IN
+Toppings:
+- Steak
+- Jalapenos
+- Guacamole
+- Tomatoes
+Toasted: Yes
+Price: $11.0
+
+MEDIUM - COKE  $2.5
+
+
+KETTLE  $1.5
+
+Total Cost: $17.0
