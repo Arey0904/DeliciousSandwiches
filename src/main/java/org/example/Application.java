@@ -203,7 +203,6 @@ public class Application {
             }
         } while (option != 2);
 
-        scanner.close();
     }
 
     String toppingMenu = """
