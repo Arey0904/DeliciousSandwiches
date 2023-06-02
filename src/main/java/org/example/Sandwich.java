@@ -26,6 +26,8 @@ public class Sandwich {
         return basePrice;
     }
 
+    //calculates the topping by going through the toppings a getting their price
+    // based on sandwich size
     public double calculateTotalToppings() {
         totalToppingPrice = 0;
         for (Topping t : toppings) {
@@ -66,6 +68,7 @@ public class Sandwich {
         return getBasePrice() + calculateTotalToppings();
     }
 
+    //displays the entire sandwich order details
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Bread: ").append(bread).append("\n");
@@ -78,7 +81,7 @@ public class Sandwich {
             }
         }
 
-        sb.append("Sides:\n"); //appends only Au Jus and Sauce to the sides breakdown of the sandwich all other topping go under Toppings:
+        sb.append("Sides:\n");
         for (Topping topping : toppings) {
             String toppingName = topping.getName();
             if (toppingName.equals("Au Jus") || toppingName.equals("Sauce")) {
