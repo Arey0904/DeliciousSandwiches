@@ -32,9 +32,7 @@ public class Application {
         scanner.close();
     }
         private void displayHomeScreen() { //Display Home screen options
-            System.out.println("""
-                               DELI-cious Point of Sales Application
-                                 
+            System.out.println(""" 
                           ==================Menu Options=======================
                                         1- New Order
                                         0- Exit
