@@ -27,6 +27,7 @@ public class Sandwich {
     }
 
     public double calculateTotalToppings() {
+        totalToppingPrice = 0;
         for (Topping t : toppings) {
             totalToppingPrice += t.getToppingPrice(t, sandwichSize);
         }
