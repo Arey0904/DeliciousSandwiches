@@ -28,7 +28,6 @@ public class Application {
             }
         } while (option != 0);
 
-        scanner.close();
     }
         private void displayHomeScreen() { //Display Home screen options
             System.out.println(""" 
