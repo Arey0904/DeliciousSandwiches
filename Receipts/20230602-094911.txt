@@ -1,0 +1,10 @@
+Custom Sandwich 1:
+Bread: WHITE
+Size: EIGHT_IN
+Toppings:
+- Chicken
+Toasted: Yes
+Price: $9.0
+
+
+Total Cost: $9.0

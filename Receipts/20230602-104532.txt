@@ -1,0 +1,16 @@
+Custom Sandwich 1:
+Bread: WHITE
+Size: EIGHT_IN
+Toppings:
+- Chicken
+- Lettuce
+- Tomatoes
+Toasted: Yes
+Price: $9.0
+
+LARGE - SPRITE  $3.0
+
+
+KETTLE Chips  $1.5
+
+Total Cost: $13.5

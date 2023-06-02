@@ -1,6 +1,5 @@
 package org.example;
 
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,13 +32,12 @@ public class Application {
     }
         private void displayHomeScreen() { //Display Home screen options
             System.out.println(""" 
-                          ==================Menu Options=======================
-                                        1- New Order
-                                        0- Exit
-                                    Enter your option: 
-                                          """);
+                                                        ====================Menu Options=====================
+                                                                          [1] - New Order
+                                                                          [0] - Exit
+                                                                         Enter your option: 
+                               """);
         }
-
 
     private void orderScreen() {
         // Create new order object
@@ -72,32 +70,30 @@ public class Application {
                     break;
             }
         } while (option != 4);
-
-        scanner.close();
     }
 
     private void displayOrderScreen() {
         System.out.println("""
                  
-        ==================Order Screen=========================
-                      1- Add Sandwich
-                      2- Add Drink
-                      3- Add Chip
-                      4- Checkout
-                      0- Cancel Order
-                      Enter your option:
+                                 ====================Order Screen=====================
+                                                  [1] - Add Sandwich
+                                                  [2] - Add Drink
+                                                  [3] - Add Chip
+                                                  [4] - Checkout
+                                                  [0] - Cancel Order
+                                                 Enter your option:
         """);
     }
 
     private void addSandwich(Order order) {
         //displays the bread choices and allows the user to select an option
         System.out.println("""
-        =============Creating Sandwich...=========
-                       Select your bread:
-        [1] White                          [3]Rye
-        [2] Wheat                          [4]Wrap
+                                     =============Creating Sandwich============
+                                                 Select your bread:
+                                     [1] - White                      [3] - Rye
+                                     [2] - Wheat                      [4] - Wrap
         
-                   Enter your choice: 
+                                                 Enter your choice: 
                      
         """);
         int breadChoice = scanner.nextInt();
@@ -114,12 +110,12 @@ public class Application {
 
         //displays the sandwich size choices and allows the user to select an option
         System.out.println("""
-        ========== Select your sandwich size ==========
-                     [1] 4 inch
-                     [2] 8 inch
-                     [3] 12 inch
+                                             ======== Select your sandwich size =======
+                                                           [1] - 4 inch
+                                                           [2] - 8 inch
+                                                           [3] - 12 inch
                      
-                 Enter your choice: 
+                                                        Enter your choice: 
                 """);
         int sandwichChoice = scanner.nextInt();
         scanner.nextLine();
@@ -167,17 +163,32 @@ public class Application {
         System.out.println("Drink added.");
     }
 
+    private void addChip(Order order) {
+        System.out.println("Add Chips");
+        System.out.println("=========");
+        scanner.nextLine();
+
+        System.out.println("Choose chips: Regular, Kettle, Tortilla");
+        String name = scanner.nextLine();
+
+        Chip chip = new Chip(name); //New chip object
+
+        order.addChip(chip); //Add chip to order
+
+        System.out.println("Chips added.");
+    }
+
     private void checkoutOrder(Order order) {
         System.out.println("Checkout");
         System.out.println("========");
 
         int option;
         do {
-            System.out.println("1) Confirm");
-            System.out.println("2) Cancel");
+            OFM.generateReceipt(order); //Generate receipt
+            System.out.println("[1] - Confirm");
+            System.out.println("[2] - Cancel");
             System.out.print("Enter your option: ");
             option = scanner.nextInt();
-            OFM.generateReceipt(order); //Generate receipt
 
             switch (option) {
                 case 1:
@@ -194,21 +205,6 @@ public class Application {
         } while (option != 2);
 
         scanner.close();
-    }
-
-    private void addChip(Order order) {
-        System.out.println("Add Chips");
-        System.out.println("=========");
-        scanner.nextLine();
-
-        System.out.println("Choose chips: Regular, Kettle, Tortilla");
-        String name = scanner.nextLine();
-
-        Chip chip = new Chip(name); //New chip object
-
-        order.addChip(chip); //Add chip to order
-
-        System.out.println("Chips added.");
     }
 
     String toppingMenu = """

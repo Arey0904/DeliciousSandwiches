@@ -27,7 +27,7 @@ public class OrderFileManager {
 
         receipt.append("\n");
         for (Drink d : order.getDrinks()) {
-            receipt.append(d.getSize()).append(" - ").append(d.getType()).append("  $").append(d.getPrice()).append("\n\n");
+            receipt.append(d.getSize()).append(" - ").append(d.getType()).append("  $").append(d.getPrice()).append("\n");
         }
 
         receipt.append("\n");
@@ -35,7 +35,7 @@ public class OrderFileManager {
             receipt.append(c.getType()).append(" Chips  $").append(c.getPrice()).append("\n\n");
         }
 
-        receipt.append("Total Cost: $").append(order.calculateTotalPrice());
+        receipt.append("Total Cost: $").append(order.calculateTotalPrice()).append("\n");
 
         finalReceipt = receipt.toString();
         System.out.println(finalReceipt);
