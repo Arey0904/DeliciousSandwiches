@@ -14,43 +14,59 @@ Each order option contains the following data:
 - Checkout
 - Cancel order
 
-Each order input is saved into seperate files each named:
-
-(insert name of File)
+Each order receipt is saved into seperate files in a Receipts folder with the following file name:
+- yyyyMMdd-hhmmss.txt -> 20230329-121523.txt 
 
 ## Features
 
-There are five (5) screens in the application:
+There are three (3) screens in the application:
 
 - Home screen
-- Add sandwich screen
-- Order Drink screen
-- Order Chips Screen
+- Order Screen
 - Checkout Screen
 
 ## Home Screen
 
+Will display the options below:
+- Create a new order
+- Exit the application
 
-Will display the Home Screen that will include the selection options:
+## Order Screen
 
-- Sandwiches, by entering "1" it will prompt the user to enter in toppings, meat choices, cheese, and sauces. As the the user is entering this in the application will auto-generate the order selection into its own file named (insert file name).
+The order screen will display multiple menu options for the user to add to their order.
 
+### Add a Sandwich
+- The user has to select option "1" it will prompt the user to create a sandwich of their chooising with multiple options.
+  - Bread Selection : 
+    - White, Wheat, Rye, Wrap 
+  - Size Selection :
+    - 4 inches, 8 inches, 12 inches
+  - Topping selctions :
+    -  meats, cheeses, and sauces. 
 
+### Add a Drink 
+- The user has to select option "3" it will prompt the user to select a drink of their choosing with multiple options with flavors included..
+  - Drink Type :
+    - Water, Soda, Juice
+  - Size Selection :
+    - Small, Medium, Large
 
-- Drinks, after finishing the Sandwiches method you will be brought back to the Home screen where you will get the option to order a drink if you would like. From there, you will be asked to if you would like a "Soda, Water, or Juice" and from there to pick a flavor. The application will once again auto-generate it into the file.
+### Add Chip
+- The user has to select option "3" it will prompt the user to select a chip flavor of their chooising
+  - Kettle, Tortilla, Regular
 
-
-
-- Chips, once again you be brought back to the Home Screen where you will get the option to order chips. From ther you can order which flavor chips you want and it will be placed in the file.
-
-
-- Checkout, once the user is done ordering you will be able to checkout in the home screen. From there the appliction will take from the file and auto-generaate the sum total of your order and will then ask you to pay.
-
-
-
+### Checkout
+- Once the user is done ordering, option "4" will allow them to checkout. 
+  #### Checkout Screen
+  - The user will have the option to confirm their order or cancel the order.
+    - Confirming the order allows the user to see their order in detail and creates a receipt which is then saved to the Receipts folder.
+    - Cancelling the order allows the user to return back to the home screen where they can create another order or exit the application.
 
 
 ## Interesting peice of code
+
+### A'sha's Interesing Piece of Code
+![image](https://github.com/Arey0904/DeliciousSandwiches/assets/129906864/d38c8891-84e1-49cc-9851-58637b54262d)
 
 
 
