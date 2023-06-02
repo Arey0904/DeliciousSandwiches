@@ -64,10 +64,15 @@ The order screen will display multiple menu options for the user to add to their
 
 ## Delicious Sandwich Application Screens
 ### Home Screen
-![image](https://github.com/Arey0904/DeliciousSandwiches/assets/129906864/260abbdd-0ed1-4fa2-b2ef-3d30e1e9875f)
+<img width="460" alt="image" src="https://github.com/Arey0904/DeliciousSandwiches/assets/58373811/045bc8ce-18e5-40e9-bc47-f69115344789">
 ### Order Screen
-![image](https://github.com/Arey0904/DeliciousSandwiches/assets/129906864/21e480f2-e5f1-42c4-891a-0849c8175eb0)
+<img width="416" alt="image" src="https://github.com/Arey0904/DeliciousSandwiches/assets/58373811/4b72a4d8-d561-4372-9f88-4afaa00e2229">
+### Toppings Menu
+<img width="312" alt="image" src="https://github.com/Arey0904/DeliciousSandwiches/assets/58373811/65a57991-aad2-48ed-a9b7-46c23e0ff6f1">
 ### Checkout Screen
+<img width="85" alt="image" src="https://github.com/Arey0904/DeliciousSandwiches/assets/58373811/72555a85-cf0a-4d39-9d11-12aca8a997c6">
+### Receipts
+<img width="305" alt="image" src="https://github.com/Arey0904/DeliciousSandwiches/assets/58373811/f263b1ce-a6d5-428f-98b8-24747a7a43f1">
 
 ## Interesting peice of code
 ```
