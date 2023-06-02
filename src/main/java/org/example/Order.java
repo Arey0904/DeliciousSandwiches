@@ -32,7 +32,7 @@ public class Order {
         this.chips.add(chip);
     }
 
-    public double calculateTotalPrice(){
+    public double calculateTotalPrice(){ // of order
         double sandwichesTotal = 0;
         double drinksTotal = 0;
         double chipsTotal = 0;
