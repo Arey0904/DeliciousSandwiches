@@ -62,11 +62,18 @@ The order screen will display multiple menu options for the user to add to their
     - Confirming the order allows the user to see their order in detail and creates a receipt which is then saved to the Receipts folder.
     - Cancelling the order allows the user to return back to the home screen where they can create another order or exit the application.
 
+## Delicious Sandwich Application Screens
+### Home Screen
+![image](https://github.com/Arey0904/DeliciousSandwiches/assets/129906864/260abbdd-0ed1-4fa2-b2ef-3d30e1e9875f)
+### Order Screen
+![image](https://github.com/Arey0904/DeliciousSandwiches/assets/129906864/21e480f2-e5f1-42c4-891a-0849c8175eb0)
+### Checkout Screen
 
 ## Interesting peice of code
+```
 
-### A'sha's Interesing Piece of Code
-![image](https://github.com/Arey0904/DeliciousSandwiches/assets/129906864/d38c8891-84e1-49cc-9851-58637b54262d)
+```
+
 
 
 
