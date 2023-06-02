@@ -2,6 +2,7 @@ package org.example;
 
 class Chip {
     private ChipType type;
+    //set price for all chips
     private double price = 1.50;
 
     public Chip(String type) {

@@ -12,6 +12,7 @@ public class Application {
         int option;
 
         do {
+            //Display Home screen
             displayHomeScreen();
             option = scanner.nextInt();
 
@@ -31,7 +32,7 @@ public class Application {
         scanner.close();
     }
 
-    private void displayHomeScreen() {
+    private void displayHomeScreen() { //Display Home screen options
         System.out.println("DELI-cious Point of Sales Application");
         System.out.println("=====================================");
         System.out.println("1) New Order");
@@ -41,10 +42,12 @@ public class Application {
 
 
     private void orderScreen() {
+        // Create new order object
         Order order = new Order();
         int option;
 
         do {
+            //Display order screen options
             displayOrderScreen();
             option = scanner.nextInt();
 
@@ -167,11 +170,11 @@ public class Application {
             System.out.println("2) Cancel");
             System.out.print("Enter your option: ");
             option = scanner.nextInt();
-            OFM.generateReceipt(order);
+            OFM.generateReceipt(order); //Generate receipt
 
             switch (option) {
                 case 1:
-                    OFM.createReceipt();
+                    OFM.createReceipt(); //Create receipt
                     System.out.println("Order confirmed.");
                     return;
                 case 2:
@@ -194,9 +197,9 @@ public class Application {
         System.out.println("Choose chips: Regular, Kettle, Tortilla");
         String name = scanner.nextLine();
 
-        Chip chip = new Chip(name);
+        Chip chip = new Chip(name); //New chip object
 
-        order.addChip(chip);
+        order.addChip(chip); //Add chip to order
 
         System.out.println("Chips added.");
     }
