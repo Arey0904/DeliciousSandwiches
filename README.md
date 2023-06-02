@@ -2,11 +2,11 @@
 
 ## Description
 
-This project allows the user to order an entry from a Deli Shop called DELI-cious Sandwiches.
+This Java project allows the user to create an order from a Deli Shop called DELI-cious Sandwiches.
 
 The shop holds multiple files and uses it help the user order from the shop.
 
-Each order option contains the following data:
+Each order can contain the following options:
 
 - Sandwiches
 - Drinks
